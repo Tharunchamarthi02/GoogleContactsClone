@@ -34,7 +34,7 @@ public class Address implements Serializable {
             return state;
         }
 
-        public void setPinCode(String zipCode) {
+        public void setPinCode(String pinCode) {
             this.pinCode = pinCode;
         }
 

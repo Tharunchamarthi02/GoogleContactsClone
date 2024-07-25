@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 public class ContactDatabase implements ContactOperations{
-    private Map<Integer, Contact> contacts = new HashMap<>();
+    private final Map<Integer, Contact> contacts = new HashMap<>();
     @Override
     public void addContact(Contact contact) throws ZeroFieldsException {
         if (contact.isValid()) {
@@ -53,7 +53,7 @@ public class ContactDatabase implements ContactOperations{
                 toBeUpdated.setPhoneNumbers(Arrays.asList(contactNumber1,contactNumber2));
                 PhoneNumber contactNumber3 = new PhoneNumber();
                 contactNumber3.setLabel("Work");
-                toBeUpdated.setPhoneNumbers(Arrays.asList(contactNumber3));
+                //toBeUpdated.setPhoneNumbers(Arrays.asList(contactNumber3));
             }
             catch (CannotAddLabelException exception){
                 System.out.println(exception.getMessage());

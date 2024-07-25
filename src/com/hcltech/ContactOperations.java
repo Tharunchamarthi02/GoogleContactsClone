@@ -1,5 +1,4 @@
 package com.hcltech;
-import java.util.List;
 
 public interface ContactOperations {
         void addContact(Contact contact) throws ZeroFieldsException;

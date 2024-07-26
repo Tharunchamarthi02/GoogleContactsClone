@@ -4,110 +4,127 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Contact implements Serializable {
-        private int id;
-        private static int count = 0;
-        private String firstName;
-        private String lastName;
-        private List<PhoneNumber> phoneNumbers;
-        private List<Email> emails;
-        private List<Address> addresses;
-        private String company;
-        private String title;
+    private int id;
+    private static int count = 0;
+    private String firstName;
+    private String lastName;
+    private List<PhoneNumber> phoneNumbers;
+    private List<Email> emails;
+    private List<Address> addresses;
+    private String company;
+    private String title;
+    private String notes;
 
-        public Contact(){
-            count++;
-            setId(count);
-        }
+    public Contact(){
+        count++;
+        setId(count);
+    }
 
-        public Contact(int id, String firstName, String lastName, List<PhoneNumber> phoneNumbers, List<Email> emails, List<Address> addresses, String company, String title ){
-            this.id = id;
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.phoneNumbers = phoneNumbers;
-            this.emails = emails;
-            this.addresses = addresses;
-            this.company = company;
-            this.title = title;
-        }
+    public Contact(int id, String firstName, String lastName, List<PhoneNumber> phoneNumbers, List<Email> emails, List<Address> addresses, String company, String title ){
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumbers = phoneNumbers;
+        this.emails = emails;
+        this.addresses = addresses;
+        this.company = company;
+        this.title = title;
+    }
 
-        public void setId(int count) {
-             this.id = count;
-        }
+    public void setId(int count) {
+         this.id = count;
+    }
 
-        public int getId() {
-            return id;
-        }
+    public int getId() {
+        return id;
+    }
 
-        public void setFirstName(String firstName){
-            this.firstName = firstName;
-        }
+    public void setFirstName(String firstName){
+        this.firstName = firstName;
+    }
 
-        public String getFirstName() {
-            return firstName;
-        }
+    public String getFirstName() {
+        return firstName;
+    }
 
-        public void setLastName(String lastName) {
-            this.lastName = lastName;
-        }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-        public String getLastName() {
-            return lastName;
-        }
+    public String getLastName() {
+        return lastName;
+    }
 
-        public List<Address> getAddresses() {
-            return addresses;
-        }
+    public List<Address> getAddresses() {
+        return addresses;
+    }
 
-        public void setAddresses(List<Address> addresses) {
-            this.addresses = addresses;
-        }
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
+    }
 
-        public void setPhoneNumbers(List<PhoneNumber> phoneNumbers) {
-            this.phoneNumbers = phoneNumbers;
-        }
+    public void setPhoneNumbers(List<PhoneNumber> phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
+    }
 
-        public List<PhoneNumber> getPhoneNumbers() {
-            return phoneNumbers;
-        }
+    public List<PhoneNumber> getPhoneNumbers() {
+        return phoneNumbers;
+    }
 
-        public void setEmails(List<Email> emails) {
-            this.emails = emails;
-        }
+    public void setEmails(List<Email> emails) {
+        this.emails = emails;
+    }
 
-        public List<Email> getEmails() {
-            return emails;
-        }
+    public List<Email> getEmails() {
+        return emails;
+    }
 
-        public String getCompany() {
-            return company;
-        }
+    public String getCompany() {
+        return company;
+    }
 
-        public void setCompany(String company) {
-            this.company = company;
-        }
+    public void setCompany(String company) {
+        this.company = company;
+    }
 
-        public void setTitle(String title) {
-            this.title = title;
-        }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-        public String getTitle() {
-            return title;
-        }
+    public String getTitle() {
+        return title;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
 
     public boolean isValid() {
-            return (firstName != null || lastName != null || phoneNumbers != null || emails != null || addresses != null || company != null || title != null );
-        }
+        return (firstName != null && !firstName.isEmpty()) ||
+                (lastName != null && !lastName.isEmpty()) ||
+                (phoneNumbers != null && !phoneNumbers.isEmpty()) ||
+                (emails != null && !emails.isEmpty()) ||
+                (addresses != null && !addresses.isEmpty()) ||
+                (company != null && !company.isEmpty()) ||
+                (title != null && !title.isEmpty() ||
+                (notes!= null && !notes.isEmpty()));
+    }
 
-        public String toString() {
-             return "Contact{" +
-                "id='" + id + '\'' +
-                ", firstName='" + getFirstName() + '\'' +
-                ", lastName='" + getLastName() + '\'' +
-                ", phoneNumbers=" + getPhoneNumbers() +
-                ", emails=" + getEmails() +
-                ", addresses=" + getAddresses() +
-                ", company='" + getCompany() + '\'' +
-                ", title='" + getTitle() + '\'' +
-                '}';
-        }
+    public String toString() {
+         return "Contact{" +
+            "id='" + id + '\'' +
+            ", firstName='" + getFirstName() + '\'' +
+            ", lastName='" + getLastName() + '\'' +
+            ", phoneNumbers=" + getPhoneNumbers() +
+            ", emails=" + getEmails() +
+            ", addresses=" + getAddresses() +
+            ", company='" + getCompany() + '\'' +
+            ", title='" + getTitle() + '\'' +
+            ", notes='" + getNotes() + '\'' +
+            '}';
+    }
 }

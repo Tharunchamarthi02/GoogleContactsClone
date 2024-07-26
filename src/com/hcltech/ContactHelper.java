@@ -9,17 +9,19 @@ public class ContactHelper {
     public void addContacts() {
         Contact contact1 = new Contact();
         contact1.setFirstName("John");
-        contact1.setLastName("Doe");
+        contact1.setLastName("");
+        contact1.setNotes("Hello from Tharun");
 
         Contact contact2 = new Contact();
         contact2.setCompany("HCL");
+
         Address address1 = new Address();
         address1.setStreet("Church Street");
         address1.setCity("Bangalore");
         address1.setState("Karnataka");
         address1.setPinCode("12345");
         address1.setCountry("India");
-        address1.setLabel("Work");
+        address1.setLabel("Home");
 
         Address address2 = new Address();
         address1.setStreet("Jigani link Road");
@@ -27,9 +29,13 @@ public class ContactHelper {
         address1.setState("Karnataka");
         address1.setPinCode("23456");
         address1.setCountry("India");
-        address1.setLabel("Home");
+        address1.setLabel("Work");
 
         contact2.setAddresses(Arrays.asList(address1, address2));
+
+        Contact contact3 = new Contact();
+        contact3.setFirstName("");
+
         try {
             contactOperations.addContact(contact1);
             contactOperations.addContact(contact2);

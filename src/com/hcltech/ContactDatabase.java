@@ -10,7 +10,7 @@ public class ContactDatabase implements ContactOperations{
         if (contact.isValid()) {
             contacts.put(contact.getId(),contact);
         } else {
-            throw new ZeroFieldsException("At least one field must be provided to create a contact");
+            throw new ZeroFieldsException("Couldn't add contact with id - " + contact.getId() + " At least one field must be provided to create a contact");
         }
     }
 
@@ -86,7 +86,8 @@ public class ContactDatabase implements ContactOperations{
             FileInputStream fileInputStream = new FileInputStream("contacts.bin");
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             while(true){
-                Contact contact = (Contact) objectInputStream.readObject();
+                Contact contact = new Contact();
+                contact = (Contact) objectInputStream.readObject();
                 contacts.put(contact.getId(),contact);
             }
         }
